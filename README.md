@@ -1,6 +1,6 @@
 # 🚀 React + TypeScript + Vite + Redux
 
-## 📌 Installation Guide
+## 📌 Scratch Installation Guide
 
 ```bash
   # ▶️ Initial Installation
@@ -25,7 +25,10 @@
   # Do you want to install Playwright with Chromium now?: Yes (Testing Setup)
 
   # ▶️ ESLint & Prettier
-  npm install -D eslint@9 @eslint/js @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-storybook eslint-config-prettier eslint-plugin-prettier
+  # Core ESLint + TypeScript > React Related Plugins > Prettier + Storybook
+  npm install -D eslint@9 @eslint/js @typescript-eslint/parser @typescript-eslint/eslint-plugin
+  npm install -D eslint-plugin-react eslint-plugin-react-hooks
+  npm install -D eslint-config-prettier eslint-plugin-prettier eslint-plugin-storybook
   # Create eslint.config.js in the project root and add ESLint configuration
   # .eslintrc.cjs is not required
   # Create a .prettierrc file in the project root and add Prettier config settings.
@@ -51,6 +54,9 @@
   # ▶️ Generate React CLI
   npm install --save-dev generate-react-cli
   # Create File: generate-react-cli.json and add config
+
+  # ▶️ Icons - Tabler
+  npm install @tabler/icons-react
 ```
 
 ## ℹ️ Project Stack Overview
@@ -78,25 +84,32 @@
 ```bash
   # ▶️ Create Router
   # src > router > AppRouter.tsx
-  # ▶️ Create Pages & Layout
-  # src > pages > Dashboard / Auth (Login/ForgotPassword)
-  # src > components > Layout > AppLayout / AuthLayout
-  # ▶️ Fix Path Issue
+  # Create routes constant
+  # Add AppRouter in App.tsx
+  # ▶️ Create Structure
+  # src > pages
+  # src > components > Layout
+  # src > components > SVGs
+  # src > components > Antd
+  # ▶️ Set Alias & Base URL to Fix Path Issue
   # Set baseUrl and paths in tsconfig.app.json
   # Add alias in vite.config.ts
+  # ▶️ Create Constants & Utils
+  # src > constants > (Images / Menues / Sorting / Messages / Routes / periods)
+  # ▶️ Integrated Theme
+  # src > theme > (colors / antdTokens / themeContext / useTheme)
+  # src > theme > styles > (globalStyles / breakpoints)
 ```
 
 ## Other Info
 
 TypeScript Configuration (Keep as Default)
 
-- tsconfig.json – base config
-- tsconfig.app.json – application config
-- tsconfig.node.json – tooling config
+- tsconfig.json | tsconfig.app.json – app config | tsconfig.node.json – tooling config
 
 Other Changes
 
-- index.css removed
+- App.css & index.css removed
 -
 
 ## Scripts

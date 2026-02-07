@@ -1,3 +1,4 @@
+import { ThemeToggle } from '@/components/Utilities/ThemeToggle/ThemeToggle'
 import { Outlet } from 'react-router-dom'
 
 interface AppLayoutProps {
@@ -8,6 +9,7 @@ const AppLayout = ({ title }: AppLayoutProps) => {
   return (
     <div>
       <h1>{title}</h1>
+      <ThemeToggle />
       <Outlet />
     </div>
   )

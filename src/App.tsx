@@ -1,17 +1,14 @@
-import { useAppDispatch, useAppSelector } from './store/hooks'
-import { increment, decrement } from './store/slice'
+import { RouterProvider } from 'react-router-dom'
+import { router } from './routes/AppRouter'
+import { ThemeContextProvider } from './theme'
+import { GlobalStyles } from './theme/styles/globalStyles'
 
 function App() {
-  const value = useAppSelector((state) => state.app.value)
-  const dispatch = useAppDispatch()
-
   return (
-    <div>
-      <h1>Value: {value}</h1>
-
-      <button onClick={() => dispatch(increment())}>+</button>
-      <button onClick={() => dispatch(decrement())}>-</button>
-    </div>
+    <ThemeContextProvider>
+      <GlobalStyles />
+      <RouterProvider router={router} />
+    </ThemeContextProvider>
   )
 }
 
