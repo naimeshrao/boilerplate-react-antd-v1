@@ -19,6 +19,7 @@
       "@store/*": ["src/store/*"],
       "@constants/*": ["src/constants/*"],
       "@utils/*": ["src/utils/*"],
+      "@theme/*": ["src/theme/*"],
       "@config/*": ["src/config/*"]
     },
     /* Strictness */

@@ -96,6 +96,9 @@
   # Add alias in vite.config.ts
   # ▶️ Create Constants & Utils
   # src > constants > (Images / Menues / Sorting / Messages / Routes / periods)
+  # ▶️ Integrated Theme
+  # src > theme > (colors / antdTokens / themeContext / useTheme)
+  # src > theme > styles > (globalStyles / breakpoints)
 ```
 
 ## Other Info
