@@ -1,4 +1,4 @@
-import logo from '../assets/react.svg'
+import logo from '../assets/images/react.svg'
 
 const Images = {
   logo

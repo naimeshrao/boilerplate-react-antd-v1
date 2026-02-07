@@ -17,6 +17,8 @@
       "@pages/*": ["src/pages/*"],
       "@routes/*": ["src/routes/*"],
       "@store/*": ["src/store/*"],
+      "@constants/*": ["src/constants/*"],
+      "@utils/*": ["src/utils/*"],
       "@config/*": ["src/config/*"]
     },
     /* Strictness */
