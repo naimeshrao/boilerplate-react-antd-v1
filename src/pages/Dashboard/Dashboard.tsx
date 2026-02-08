@@ -1,3 +1,4 @@
+import { Button } from '@/components'
 import { useTranslation } from 'react-i18next'
 
 interface DashboardProps {
@@ -12,6 +13,10 @@ const Dashboard = ({ message = 'Dashboard' }: DashboardProps) => {
       <h1>{message}</h1>
 
       <p>{t('Welcome')}</p>
+
+      <Button type="primary" size="large">
+        Primary
+      </Button>
     </div>
   )
 }
