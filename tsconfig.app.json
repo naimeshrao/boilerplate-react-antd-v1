@@ -9,7 +9,7 @@
     /* Module resolution (Vite friendly) */
     "module": "ESNext",
     "moduleResolution": "bundler",
-    "types": ["vite/client"],
+    "types": ["vite/client", "jest", "@testing-library/jest-dom"],
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
@@ -21,6 +21,7 @@
       "@utils/*": ["src/utils/*"],
       "@theme/*": ["src/theme/*"],
       "@i18n/*": ["src/i18n/*"],
+      "@test/*": ["src/test/*"],
       "@config/*": ["src/config/*"]
     },
     /* Strictness */

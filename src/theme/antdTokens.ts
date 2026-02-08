@@ -3,7 +3,7 @@ import { ThemeMode } from './types'
 
 export const getAntdTheme = (mode: ThemeMode): ThemeConfig => ({
   token: {
-    colorPrimary: mode === 'light' ? '#0C78FF' : '#5A96FF',
+    colorPrimary: mode === 'light' ? '#0C78FF' : '#aa3344',
     borderRadius: 6
   },
 

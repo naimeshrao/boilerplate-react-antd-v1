@@ -1,3 +1,5 @@
+// Central TypeScript definitions for theming
+
 export type ThemeMode = 'light' | 'dark'
 
 export interface AppTheme {

@@ -1,3 +1,5 @@
+// Color Variables
+
 export const lightColors = {
   primary: '#0C78FF',
   neutral: '#FFFFFF',

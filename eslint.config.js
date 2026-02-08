@@ -37,9 +37,71 @@ export default [
     }
   },
 
+  // Jest and test files configuration
+  {
+    files: ['**/*.{test,spec}.{ts,tsx}', 'src/setupTests.ts', '__mocks__/**/*'],
+
+    languageOptions: {
+      parser: tsParser,
+      parserOptions: {
+        tsconfigRootDir: __dirname,
+        project: null
+      },
+      ecmaVersion: 'latest',
+      sourceType: 'module',
+      globals: {
+        // Jest globals
+        describe: 'readonly',
+        it: 'readonly',
+        test: 'readonly',
+        expect: 'readonly',
+        beforeAll: 'readonly',
+        beforeEach: 'readonly',
+        afterAll: 'readonly',
+        afterEach: 'readonly',
+        jest: 'readonly',
+        // Browser globals
+        document: 'readonly',
+        window: 'readonly',
+        navigator: 'readonly',
+        localStorage: 'readonly',
+        console: 'readonly',
+        // Node globals
+        module: 'readonly',
+        global: 'readonly',
+        process: 'readonly'
+      }
+    },
+
+    plugins: {
+      '@typescript-eslint': tseslint,
+      react,
+      'react-hooks': reactHooks,
+      prettier: prettierPlugin
+    },
+
+    rules: {
+      ...tseslint.configs.recommended.rules,
+      ...prettier.rules,
+
+      'react/react-in-jsx-scope': 'off',
+      '@typescript-eslint/no-unused-vars': [
+        'warn',
+        { argsIgnorePattern: '^_' }
+      ],
+      '@typescript-eslint/no-explicit-any': 'warn',
+      'prettier/prettier': 'warn'
+    }
+  },
+
   // Main application linting
   {
     files: ['**/*.{ts,tsx}', 'src/pages/**', 'src/components/**'],
+    ignores: [
+      '**/*.{test,spec}.{ts,tsx}',
+      'src/setupTests.ts',
+      '__mocks__/**/*'
+    ],
 
     languageOptions: {
       parser: tsParser,
@@ -93,6 +155,6 @@ export default [
   },
 
   {
-    ignores: ['dist', 'node_modules']
+    ignores: ['dist', 'node_modules', 'coverage']
   }
 ]
