@@ -1,13 +1,10 @@
-/* eslint-env browser */
-import React, { createContext, useState, useEffect } from 'react'
+import React, { createContext, useState, useEffect, ReactNode } from 'react'
 import { ConfigProvider } from 'antd'
+import { ThemeProvider } from 'styled-components'
 import { getAntdTheme } from './antdTokens'
-import { ThemeMode, colorVariables } from './colors'
-import {
-  DEFAULT_THEME,
-  THEME_STORAGE_KEY,
-  THEME_TRANSITION_DURATION
-} from '@/constants/theme'
+import { ThemeMode, AppTheme } from './types'
+import { DEFAULT_THEME, THEME_STORAGE_KEY } from '@/constants/theme'
+import { getTheme } from './ThemeSchema'
 
 interface ThemeContextProps {
   mode: ThemeMode
@@ -21,21 +18,7 @@ export const ThemeContext = createContext<ThemeContextProps>({
   setTheme: () => {}
 })
 
-// Apply CSS variables for colors + smooth transition
-const applyCssVariables = (mode: ThemeMode) => {
-  const root = document.documentElement
-
-  // Smooth transition
-  root.style.transition = `background-color ${THEME_TRANSITION_DURATION}ms, color ${THEME_TRANSITION_DURATION}ms`
-
-  Object.entries(colorVariables[mode]).forEach(([key, value]) => {
-    root.style.setProperty(`--${key}-rgb`, value)
-    root.style.setProperty(`--${key}`, `rgb(${value})`)
-  })
-  root.setAttribute('data-theme', mode)
-}
-
-// Safely get initial theme from localStorage
+// Get initial theme safely
 const getInitialTheme = (): ThemeMode => {
   if (typeof window !== 'undefined' && window.localStorage) {
     return (
@@ -45,14 +28,16 @@ const getInitialTheme = (): ThemeMode => {
   return DEFAULT_THEME
 }
 
-export const ThemeContextProvider: React.FC<{ children: React.ReactNode }> = ({
+interface ThemeContextProviderProps {
+  children: ReactNode
+}
+
+export const ThemeContextProvider: React.FC<ThemeContextProviderProps> = ({
   children
 }) => {
   const [mode, setMode] = useState<ThemeMode>(getInitialTheme)
 
   useEffect(() => {
-    applyCssVariables(mode)
-
     if (typeof window !== 'undefined' && window.localStorage) {
       localStorage.setItem(THEME_STORAGE_KEY, mode)
     }
@@ -61,9 +46,13 @@ export const ThemeContextProvider: React.FC<{ children: React.ReactNode }> = ({
   const toggleTheme = () =>
     setMode((prev) => (prev === 'light' ? 'dark' : 'light'))
 
+  const theme: AppTheme = getTheme(mode)
+
   return (
     <ThemeContext.Provider value={{ mode, toggleTheme, setTheme: setMode }}>
-      <ConfigProvider theme={getAntdTheme(mode)}>{children}</ConfigProvider>
+      <ThemeProvider theme={theme}>
+        <ConfigProvider theme={getAntdTheme(mode)}>{children}</ConfigProvider>
+      </ThemeProvider>
     </ThemeContext.Provider>
   )
 }

@@ -88,14 +88,13 @@
   # Add AppRouter in App.tsx
   # ▶️ Create Structure
   # src > pages
-  # src > components > Layout
-  # src > components > SVGs
-  # src > components > Antd
+  # src > components > (Layout / SVGs / Antd / Utilities)
   # ▶️ Set Alias & Base URL to Fix Path Issue
   # Set baseUrl and paths in tsconfig.app.json
   # Add alias in vite.config.ts
   # ▶️ Create Constants & Utils
   # src > constants > (Images / Menues / Sorting / Messages / Routes / periods)
+  # src > utils > (message / sorting / validation)
   # ▶️ Integrated Theme
   # src > theme > (colors / antdTokens / themeContext / useTheme)
   # src > theme > styles > (globalStyles / breakpoints)
@@ -106,6 +105,8 @@
   # added I18nProvider in main.tsx | LanguageSelector Component
   # ▶️ ErrorBoundary
   # ErrorBoundary Component added in main.tsx
+  # ▶️ Services (API's)
+  # src > services > api > (apiClient / apiConfig / endpoints)
 ```
 
 ## Other Info
@@ -117,7 +118,6 @@ TypeScript Configuration (Keep as Default)
 Other Changes
 
 - App.css & index.css removed
--
 
 ## Scripts
 

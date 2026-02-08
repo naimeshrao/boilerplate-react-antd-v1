@@ -54,7 +54,8 @@ export default [
         document: 'readonly',
         window: 'readonly',
         navigator: 'readonly',
-        localStorage: 'readonly'
+        localStorage: 'readonly',
+        console: 'readonly'
       }
     },
 

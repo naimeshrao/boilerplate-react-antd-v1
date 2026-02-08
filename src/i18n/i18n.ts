@@ -10,36 +10,27 @@ import authFr from './locales/fr/auth.json'
 import accountFr from './locales/fr/account.json'
 import commonFr from './locales/fr/common.json'
 
-i18n.use(initReactI18next).init(
-  {
-    resources: {
-      en: {
-        auth: authEn,
-        account: accountEn,
-        common: commonEn
-      },
-      fr: {
-        auth: authFr,
-        account: accountFr,
-        common: commonFr
-      }
+i18n.use(initReactI18next).init({
+  resources: {
+    en: {
+      auth: authEn,
+      account: accountEn,
+      common: commonEn
     },
-    fallbackLng: 'en',
-    ns: ['auth', 'account', 'common'], // namespaces
-    defaultNS: 'common',
-    interpolation: {
-      escapeValue: false // React already does escaping
-    },
-    debug: false // set false in production
-  },
-  (error) => {
-    if (error) {
-      window.console.log('i18n initialized')
-    } else {
-      window.console.error('i18n initialization error', error)
+    fr: {
+      auth: authFr,
+      account: accountFr,
+      common: commonFr
     }
-  }
-)
+  },
+  fallbackLng: 'en',
+  ns: ['auth', 'account', 'common'], // namespaces
+  defaultNS: 'common',
+  interpolation: {
+    escapeValue: false // React already does escaping
+  },
+  debug: false // set false in production
+})
 
 export default i18n
 
