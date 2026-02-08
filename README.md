@@ -57,6 +57,17 @@
 
   # ▶️ Icons - Tabler
   npm install @tabler/icons-react
+
+  # ▶️ Testing Config
+  # Jest Core Setup
+  npm install --save-dev jest ts-jest jest-environment-jsdom
+  # React Testing Library
+  npm install --save-dev @testing-library/react
+  # Jest DOM + User Events
+  npm install --save-dev @testing-library/jest-dom @testing-library/user-event
+  # Identity Proxy for CSS
+  npm install --save-dev identity-obj-proxy
+  npm install --save-dev @types/jest
 ```
 
 ## ℹ️ Project Stack Overview
@@ -107,6 +118,14 @@
   # ErrorBoundary Component added in main.tsx
   # ▶️ Services (API's)
   # src > services > api > (apiClient / apiConfig / endpoints)
+  # ▶️ Setup Testing (Jest / React Test Library)
+  # jest.config.js in root
+  # tsconfig.json > types (add)
+  # package.json > scripts (add)
+  # src/setupTests.ts & __mocks__ folder in root & src > test > (testUtils.tsx)
+  # created sample Button.test.tsx
+  # Run test 'npm run test' & 'npm run test -- Button.test.tsx'
+  # Update eslint.config.js
 ```
 
 ## Other Info
@@ -118,6 +137,7 @@ TypeScript Configuration (Keep as Default)
 Other Changes
 
 - App.css & index.css removed
+- Update Main/App files
 
 ## Scripts
 

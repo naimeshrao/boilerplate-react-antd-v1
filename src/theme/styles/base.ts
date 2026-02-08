@@ -1,3 +1,5 @@
+// Shared theme common values
+
 export const baseTheme = {
   spacing: {
     xs: '4px',

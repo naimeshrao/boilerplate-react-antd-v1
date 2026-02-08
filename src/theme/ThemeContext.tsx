@@ -4,7 +4,7 @@ import { ThemeProvider } from 'styled-components'
 import { getAntdTheme } from './antdTokens'
 import { ThemeMode, AppTheme } from './types'
 import { DEFAULT_THEME, THEME_STORAGE_KEY } from '@/constants/theme'
-import { getTheme } from './ThemeSchema'
+import { getTheme } from './appTheme'
 
 interface ThemeContextProps {
   mode: ThemeMode
