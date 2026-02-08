@@ -99,6 +99,13 @@
   # ▶️ Integrated Theme
   # src > theme > (colors / antdTokens / themeContext / useTheme)
   # src > theme > styles > (globalStyles / breakpoints)
+  # added ThemeContextProvider in main.tsx | ThemeToggle Component
+  # ▶️ Integrated i18n for Multi language
+  # src > i18n > locales > (en/fr)
+  # src > i18n > (i18n / i18nProvider)
+  # added I18nProvider in main.tsx | LanguageSelector Component
+  # ▶️ ErrorBoundary
+  # ErrorBoundary Component added in main.tsx
 ```
 
 ## Other Info
