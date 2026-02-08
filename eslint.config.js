@@ -12,45 +12,71 @@ import path from 'node:path'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
+// Shared language options
+const baseLanguageOptions = {
+  parser: tsParser,
+  ecmaVersion: 'latest',
+  sourceType: 'module'
+}
+
+// Shared plugins
+const basePlugins = {
+  '@typescript-eslint': tseslint,
+  react,
+  'react-hooks': reactHooks,
+  prettier: prettierPlugin
+}
+
+// Shared rules
+const baseRules = {
+  ...tseslint.configs.recommended.rules,
+  ...prettier.rules,
+  '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
+  '@typescript-eslint/no-explicit-any': 'warn',
+  'prettier/prettier': 'warn'
+}
+
+// Shared browser globals
+const browserGlobals = {
+  document: 'readonly',
+  window: 'readonly',
+  navigator: 'readonly',
+  localStorage: 'readonly',
+  console: 'readonly'
+}
+
 export default [
   js.configs.recommended,
   prettier,
 
-  // Non-app files: disable type-aware linting
+  // Non-app files
   {
     files: ['.storybook/**/*.{ts,tsx}', 'vite.config.ts', 'vitest.shims.d.ts'],
-
     languageOptions: {
-      parser: tsParser,
-      parserOptions: {
-        project: null
-      },
+      ...baseLanguageOptions,
+      parserOptions: { project: null },
       globals: {
         __dirname: 'readonly',
         process: 'readonly',
         module: 'readonly'
       }
     },
-
     rules: {
       'no-undef': 'off'
     }
   },
 
-  // Jest and test files configuration
+  // Jest and test files
   {
     files: ['**/*.{test,spec}.{ts,tsx}', 'src/setupTests.ts', '__mocks__/**/*'],
-
     languageOptions: {
-      parser: tsParser,
+      ...baseLanguageOptions,
       parserOptions: {
         tsconfigRootDir: __dirname,
         project: null
       },
-      ecmaVersion: 'latest',
-      sourceType: 'module',
       globals: {
-        // Jest globals
+        // Jest
         describe: 'readonly',
         it: 'readonly',
         test: 'readonly',
@@ -60,43 +86,22 @@ export default [
         afterAll: 'readonly',
         afterEach: 'readonly',
         jest: 'readonly',
-        // Browser globals
-        document: 'readonly',
-        window: 'readonly',
-        navigator: 'readonly',
-        localStorage: 'readonly',
-        console: 'readonly',
-        // Node globals
+        // Browser
+        ...browserGlobals,
+        // Extra DOM types
+        IntersectionObserver: 'readonly',
+        IntersectionObserverEntry: 'readonly',
+        // Node
         module: 'readonly',
         global: 'readonly',
-        process: 'readonly',
-        IntersectionObserver: 'readonly',
-        IntersectionObserverEntry: 'readonly'
+        process: 'readonly'
       }
     },
-
-    plugins: {
-      '@typescript-eslint': tseslint,
-      react,
-      'react-hooks': reactHooks,
-      prettier: prettierPlugin
-    },
-
-    rules: {
-      ...tseslint.configs.recommended.rules,
-      ...prettier.rules,
-
-      'react/react-in-jsx-scope': 'off',
-      '@typescript-eslint/no-unused-vars': [
-        'warn',
-        { argsIgnorePattern: '^_' }
-      ],
-      '@typescript-eslint/no-explicit-any': 'warn',
-      'prettier/prettier': 'warn'
-    }
+    plugins: basePlugins,
+    rules: baseRules
   },
 
-  // Main application linting
+  // Main application files
   {
     files: ['**/*.{ts,tsx}', 'src/pages/**', 'src/components/**'],
     ignores: [
@@ -104,59 +109,32 @@ export default [
       'src/setupTests.ts',
       '__mocks__/**/*'
     ],
-
     languageOptions: {
-      parser: tsParser,
+      ...baseLanguageOptions,
       parserOptions: {
         tsconfigRootDir: __dirname,
-        // project: ['./tsconfig.app.json', './tsconfig.node.json']
         project: null
       },
-      ecmaVersion: 'latest',
-      sourceType: 'module',
-      globals: {
-        document: 'readonly',
-        window: 'readonly',
-        navigator: 'readonly',
-        localStorage: 'readonly',
-        console: 'readonly'
-      }
+      globals: browserGlobals
     },
-
     plugins: {
-      '@typescript-eslint': tseslint,
-      react,
-      'react-hooks': reactHooks,
-      storybook,
-      prettier: prettierPlugin
+      ...basePlugins,
+      storybook
     },
-
     settings: {
       react: { version: 'detect' }
     },
-
     rules: {
-      ...tseslint.configs.recommended.rules,
-      ...prettier.rules,
-
-      'react/react-in-jsx-scope': 'off',
+      ...baseRules,
+      // App specific overrides
       'import/no-absolute-path': 'off',
       '@typescript-eslint/no-shadow': 'off',
       'import/prefer-default-export': 'off',
       'react/jsx-props-no-spreading': 'off',
       'import/no-named-as-default': 'off',
-      'no-param-reassign': 'off',
-
-      '@typescript-eslint/no-unused-vars': [
-        'warn',
-        { argsIgnorePattern: '^_' }
-      ],
-
-      '@typescript-eslint/no-explicit-any': 'warn',
-      'prettier/prettier': 'warn'
+      'no-param-reassign': 'off'
     }
   },
-
   {
     ignores: ['dist', 'node_modules', 'coverage']
   }
