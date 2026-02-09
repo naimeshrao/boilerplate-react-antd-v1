@@ -7,6 +7,7 @@ import {
   Collapse,
   DatePicker,
   Dropdown,
+  FloatButton,
   Form,
   FormItem,
   Input,
@@ -23,7 +24,7 @@ import {
   Tag,
   Tooltip
 } from '@/components'
-import { IconUser } from '@tabler/icons-react'
+import { Icon3dRotate, IconUser } from '@tabler/icons-react'
 import { CollapseProps, DatePickerProps, MenuProps, TabsProps } from 'antd'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -328,6 +329,8 @@ const Dashboard = ({ message = 'Dashboard' }: DashboardProps) => {
       </Card>
       <br />
       <Avatar size={64} icon={<IconUser />} />
+      <br />
+      <FloatButton shape="circle" type="primary" icon={<Icon3dRotate />} />
     </div>
   )
 }

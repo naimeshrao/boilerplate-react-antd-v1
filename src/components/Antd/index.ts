@@ -20,6 +20,7 @@ export * from './Form/Form'
 export * from './Collapse/Collapse'
 export * from './Card/Card'
 export * from './Avatar/Avatar'
+export * from './FloatButton/FloatButton'
 
 export { default as Select } from './Select/Select'
 export { Input, TextArea, Password, Search } from './Input/Input'
