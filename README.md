@@ -1,6 +1,6 @@
 # 🚀 React + TypeScript + Vite + Redux
 
-## 📌 Scratch Installation Guide
+## 👉 Scratch Installation Guide
 
 ```bash
   # ▶️ Initial Installation
@@ -84,12 +84,6 @@
 | Multi-language   | i18next (v25)                                          |
 | Code Quality     | ESLint - Flat Config (v9), Prettier (v3.8), Husky (v9) |
 
-## ⚠️ Important Notes
-
-- Configure your Git user settings before committing code.
-- Add a .env file in the project root for environment variables.
-- Husky ensures that code is automatically linted before every commit.
-
 ## Update Files & Structure
 
 ```bash
@@ -130,7 +124,32 @@
   # Update eslint.config.js
 ```
 
-## Other Info
+## Project Scripts
+
+```bash
+  npm run dev         # Start development server
+  npm run build       # Build production-ready app
+
+  npm run lint        # Run ESLint to check code
+  npm run lint:fix    # Automatically fix linting issues
+  npm run format      # Run Prettier to format all files
+  npm run clean       # Remove dist/build folders
+
+  npm run test            # Run Jest tests once
+  npm run test:watch      # Run Jest in watch mode (rerun tests on changes)
+  npm run test:coverage   # Run Jest and generate coverage report
+
+  npm run storybook         # Start Storybook dev server
+  npm run build-storybook   # Build static Storybook site
+```
+
+## ⚠️ Important Notes
+
+- Configure your Git user settings before committing code.
+- Add a .env file in the project root for environment variables.
+- Husky ensures that code is automatically linted before every commit.
+
+## 👉 Other Info
 
 TypeScript Configuration (Keep as Default)
 
@@ -141,13 +160,3 @@ Other Changes
 - App.css & index.css removed
 - Update Main/App files
 - APP_ANALYSIS.md file for improvements
-
-## Scripts
-
-```json
-"scripts": {
-  "lint": "eslint . --ext .ts,.tsx",
-  "lint:fix": "eslint . --ext .ts,.tsx --fix",
-  "format": "prettier --write ."
-}
-```
