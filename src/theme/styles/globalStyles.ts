@@ -1,6 +1,6 @@
 /* ===== Global CSS Base Styles ===== */
 import { createGlobalStyle } from 'styled-components'
-import { breakpointMax } from './breakpoints'
+import { media } from './breakpoints'
 
 export const GlobalStyles = createGlobalStyle`
   /* === Reset Styles === */
@@ -83,14 +83,14 @@ export const GlobalStyles = createGlobalStyle`
 
   .show-desktop {
     display: block;
-    @media ${breakpointMax.md} {
+    ${media.above('md')} {
       display: none;
     }
   }
 
   .show-mobile {
     display: none;
-    @media ${breakpointMax.md} {
+    ${media.above('md')} {
       display: block;
     }
   }

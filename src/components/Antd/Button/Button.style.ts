@@ -13,6 +13,6 @@ export const StyledButton = styled(AntdButton)<StyledButtonProps>`
     align-items: center;
     justify-content: center;
     font-weight: 600;
-    background-color: ${({ theme }) => theme.colors.primary};
+    background-color: ${({ theme }) => theme.colors['primary-500']};
   }
 `
