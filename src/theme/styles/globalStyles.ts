@@ -29,7 +29,7 @@ export const GlobalStyles = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
     -webkit-text-size-adjust: 100%;
     text-rendering: optimizeSpeed;
-  }
+   }
 
   p{
     font-size: 16px;
@@ -63,8 +63,12 @@ export const GlobalStyles = createGlobalStyle`
     cursor: pointer;
 
     &:visited, &:focus { }
-    &:focus-visible { outline: 2px solid; }
     &:hover { }
+
+    // ===== User Accessibility =====
+    &:focus-visible {
+      outline: 2px solid;
+    }
   }
 
   /* === Form Styles === */

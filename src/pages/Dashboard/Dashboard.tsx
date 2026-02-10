@@ -266,6 +266,8 @@ const Dashboard = ({ message = 'Dashboard' }: DashboardProps) => {
     <div>
       <Button onClick={showNotification}>Show Notification</Button>
       <h1>{message}</h1>
+      <Skeleton variant="h1" paragraph={false} />
+      <Skeleton variant="h1" paragraph={false} fullWidth />
       <p>{t('Welcome')}</p>
       <Button type="primary" size="large">
         Primary
@@ -287,7 +289,6 @@ const Dashboard = ({ message = 'Dashboard' }: DashboardProps) => {
       <br />
       <Select
         defaultValue="lucy"
-        style={{ width: 120 }}
         onChange={handleChange}
         options={[
           { value: 'jack', label: 'Jack' },
@@ -358,13 +359,16 @@ const Dashboard = ({ message = 'Dashboard' }: DashboardProps) => {
         onChange={onChangeCol}
       />
       <br />
-      <Card title="Default Card" cardType="default" style={{ width: 200 }}>
+      <Card title="Default Card" cardType="default">
         This is the default card content.
       </Card>
-      <Card title="Outlined Card" cardType="outlined" style={{ width: 200 }}>
+      <Card title="Form Card" cardType="form">
         This is an outlined card content.
       </Card>
-      <Card title="Elevated Card" cardType="elevated" style={{ width: 200 }}>
+      <Card title="List Card" cardType="list">
+        This is an elevated card content.
+      </Card>
+      <Card title="KPI Card" cardType="kpi">
         This is an elevated card content.
       </Card>
       <br />

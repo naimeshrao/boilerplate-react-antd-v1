@@ -6,6 +6,59 @@ export const Button = styled(AntdButton)`
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: 600;
+    box-shadow: none;
+    gap: 16px;
+
+    // ===== Primary Button =====
+    &.ant-btn-primary {
+      color: white;
+      border-color: ${({ theme }) => theme.colors['primary-500']};
+      background: ${({ theme }) => theme.colors['primary-500']};
+
+      &:disabled {
+      }
+
+      &:not(:disabled):not(.ant-btn-disabled):hover,
+      &:not(:disabled):not(.ant-btn-disabled):active {
+      }
+    }
+
+    // ===== Default Button (Secondary) =====
+    &.ant-btn-default {
+      color: white;
+      border-color: ${({ theme }) => theme.colors['secondary-500']};
+      background: ${({ theme }) => theme.colors['secondary-500']};
+
+      &:disabled {
+      }
+
+      &:not(:disabled):not(.ant-btn-disabled):hover,
+      &:not(:disabled):not(.ant-btn-disabled):active {
+      }
+    }
+
+    // ===== Text Button =====
+    &.ant-btn-text {
+    }
+
+    // ===== Link Button =====
+    &.ant-btn-link {
+    }
+
+    // ===== Icon inside Button =====
+    & .ant-btn-icon {
+      width: 24px;
+      height: 24px;
+      font-size: 24px;
+
+      svg {
+        margin: auto;
+      }
+    }
+
+    // ===== User Accessibility =====
+    &:focus-visible {
+      outline: 2px solid;
+    }
   }
 `
