@@ -1,5 +1,6 @@
 import {
   Alert,
+  AppNotification,
   Avatar,
   Button,
   Card,
@@ -20,19 +21,30 @@ import {
   Select,
   Skeleton,
   Spin,
+  Statistic,
   Switch,
   Table,
   Tabs,
   Tag,
-  Tooltip,
   Upload
 } from '@/components'
-import { Icon3dRotate, IconUpload, IconUser } from '@tabler/icons-react'
 import {
+  Icon3dRotate,
+  IconArrowDown,
+  IconArrowUp,
+  IconBrandTwitter,
+  IconUpload,
+  IconUser
+} from '@tabler/icons-react'
+import {
+  Col,
   CollapseProps,
   DatePickerProps,
+  Flex,
   MenuProps,
+  Row,
   TabsProps,
+  Tooltip,
   UploadProps
 } from 'antd'
 import { useState } from 'react'
@@ -245,9 +257,19 @@ const Dashboard = ({ message = 'Dashboard' }: DashboardProps) => {
     }
   }
 
+  const showNotification = () => {
+    AppNotification.success({
+      message: 'Saved Successfully',
+      description: 'Your data has been updated.'
+    })
+  }
+
   return (
     <div>
+      <Button onClick={showNotification}>Show Notification</Button>
       <h1>{message}</h1>
+      <Skeleton variant="h1" paragraph={false} />
+      <Skeleton variant="h1" paragraph={false} fullWidth />
       <p>{t('Welcome')}</p>
       <Button type="primary" size="large">
         Primary
@@ -269,7 +291,6 @@ const Dashboard = ({ message = 'Dashboard' }: DashboardProps) => {
       <br />
       <Select
         defaultValue="lucy"
-        style={{ width: 120 }}
         onChange={handleChange}
         options={[
           { value: 'jack', label: 'Jack' },
@@ -300,7 +321,15 @@ const Dashboard = ({ message = 'Dashboard' }: DashboardProps) => {
         <TextArea rows={4} />
       </Form>
       <br />
-      <Tag>Tag 1</Tag>
+      <Flex gap={20}>
+        <Tag color="default" closeIcon icon={<IconBrandTwitter />}>
+          Default
+        </Tag>
+        <Tag color="success">Success</Tag>
+        <Tag color="error">Error</Tag>
+        <Tag color="warning">Warning</Tag>
+        <Tag color="processing">Processing</Tag>
+      </Flex>
       <br />
       <Tabs defaultActiveKey="1" items={itemsTabs} onChange={onChangeTabs} />
       <br />
@@ -340,13 +369,14 @@ const Dashboard = ({ message = 'Dashboard' }: DashboardProps) => {
         onChange={onChangeCol}
       />
       <br />
-      <Card title="Default Card" cardType="default" style={{ width: 200 }}>
-        This is the default card content.
-      </Card>
-      <Card title="Outlined Card" cardType="outlined" style={{ width: 200 }}>
+      <Card cardType="default">This is the default card content.</Card>
+      <Card title="Form Card" cardType="form">
         This is an outlined card content.
       </Card>
-      <Card title="Elevated Card" cardType="elevated" style={{ width: 200 }}>
+      <Card title="List Card" cardType="list">
+        This is an elevated card content.
+      </Card>
+      <Card title="KPI Card" cardType="kpi">
         This is an elevated card content.
       </Card>
       <br />
@@ -365,6 +395,43 @@ const Dashboard = ({ message = 'Dashboard' }: DashboardProps) => {
         alt="basic"
         src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
       />
+      <br />
+      <Row gutter={16}>
+        <Col span={12}>
+          <Card variant="borderless">
+            <Statistic
+              title="Active"
+              value={11.28}
+              precision={2}
+              prefix={<IconArrowUp />}
+              suffix="%"
+            />
+          </Card>
+        </Col>
+        <Col span={12}>
+          <Card variant="borderless">
+            <Statistic
+              title="Idle"
+              value={9.3}
+              precision={2}
+              prefix={<IconArrowDown />}
+              suffix="%"
+            />
+          </Card>
+        </Col>
+      </Row>
+      <br />
+      <Row gutter={[24, 16]}>
+        <Col xs={24} lg={{ flex: 'none' }}>
+          Auto Flex Col LG
+        </Col>
+        <Col xs={24} md={24} lg="auto" flex="0 0 auto">
+          <Button>Click Me</Button>
+        </Col>
+        <Col xs={24} md={24} lg={24} flex="1">
+          <Input placeholder="Type here" />
+        </Col>
+      </Row>
     </div>
   )
 }

@@ -1,4 +1,4 @@
-# 🚀 React + TypeScript + Vite + Redux
+# 🚀 React + TS + Vite (Antd Design System)
 
 ## 👉 Scratch Installation Guide
 
@@ -122,6 +122,9 @@
   # created sample Button.test.tsx
   # Run test 'npm run test' & 'npm run test -- Button.test.tsx'
   # Update eslint.config.js
+  # ▶️ Docs files
+  # AntdSnippets.md (Useful Antd Snippets)
+  # ReactFC.md (Sample component to extend for extra props in Antd Comp)
 ```
 
 ## Project Scripts
