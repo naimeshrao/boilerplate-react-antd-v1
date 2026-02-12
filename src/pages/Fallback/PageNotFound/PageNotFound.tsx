@@ -2,6 +2,7 @@ interface PageNotFoundProps {
   message?: string
 }
 
+// Usage: Route does not exist | Wrong URL
 const PageNotFound = ({ message = '404 Not Found' }: PageNotFoundProps) => {
   return (
     <div>

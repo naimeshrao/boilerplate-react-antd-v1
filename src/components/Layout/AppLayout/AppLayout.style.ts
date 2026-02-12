@@ -37,6 +37,14 @@ export const AppContainer = styled(Content)`
   ${flex('column')};
   flex: 1 1 auto;
   position: relative;
+  overflow: auto;
   padding: 0;
+`
+
+export const AppContent = styled.div`
+  ${flex('column')};
+  flex: 1 1 auto;
+  position: relative;
   overflow-x: hidden;
+  padding: 0;
 `

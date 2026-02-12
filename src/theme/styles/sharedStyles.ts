@@ -1,6 +1,6 @@
 import styled, { css, keyframes } from 'styled-components'
 
-// Flex Helper | ${flex('row', '16px', 'center', 'space-between', 'wrap')};
+// Flex Helper
 export const flex = (
   direction?: string,
   gap?: string,

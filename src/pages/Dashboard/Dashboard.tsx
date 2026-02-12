@@ -6,6 +6,7 @@ import {
   Card,
   Checkbox,
   Collapse,
+  ConfirmModal,
   DatePicker,
   Dropdown,
   Empty,
@@ -264,6 +265,18 @@ const Dashboard = ({ message = 'Dashboard' }: DashboardProps) => {
     })
   }
 
+  // Confirm Modal
+  const [openCM, setOpenCM] = useState(false)
+
+  const handleCMOk = () => {
+    console.log('Confirmed')
+    setOpenCM(false)
+  }
+
+  const handleCMCancel = () => {
+    setOpenCM(false)
+  }
+
   return (
     <div>
       <Button onClick={showNotification}>Show Notification</Button>
@@ -432,6 +445,19 @@ const Dashboard = ({ message = 'Dashboard' }: DashboardProps) => {
           <Input placeholder="Type here" />
         </Col>
       </Row>
+
+      <Button onClick={() => setOpenCM(true)}>Open Modal</Button>
+
+      <ConfirmModal
+        open={openCM}
+        onOk={handleCMOk}
+        onCancel={() => handleCMCancel()}
+        title="Delete?"
+        okText="Delete"
+        cancelText="Cancel"
+      >
+        Are you sure you want to delete?
+      </ConfirmModal>
     </div>
   )
 }

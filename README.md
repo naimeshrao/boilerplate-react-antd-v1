@@ -1,4 +1,18 @@
-# 🚀 React + TS + Vite (Antd Design System)
+# 🚀 React + TS + Vite (Ant Design System)
+
+## ℹ️ Project Stack Overview
+
+| Category         | Technology                                             |
+| :--------------- | :----------------------------------------------------- |
+| Frontend         | React (v19+), TypeScript (v5)                          |
+| Bundler          | Vite (v10)                                             |
+| State Management | Redux Toolkit (v2)                                     |
+| Routing          | React Router (v7+)                                     |
+| Styling          | Ant Design (v6), Styled Components (v6)                |
+| Storybook        | Component library, Dev docs (v10)                      |
+| HTTP Client      | Axios                                                  |
+| Multi-language   | i18next (v25)                                          |
+| Code Quality     | ESLint - Flat Config (v9), Prettier (v3.8), Husky (v9) |
 
 ## 👉 Scratch Installation Guide
 
@@ -70,42 +84,29 @@
   npm install --save-dev @types/jest
 ```
 
-## ℹ️ Project Stack Overview
-
-| Category         | Technology                                             |
-| :--------------- | :----------------------------------------------------- |
-| Frontend         | React (v19+), TypeScript (v5)                          |
-| Bundler          | Vite (v10)                                             |
-| State Management | Redux Toolkit (v2)                                     |
-| Routing          | React Router (v7+)                                     |
-| Styling          | Ant Design (v6), Styled Components (v6)                |
-| Storybook        | Component library, Dev docs (v10)                      |
-| HTTP Client      | Axios                                                  |
-| Multi-language   | i18next (v25)                                          |
-| Code Quality     | ESLint - Flat Config (v9), Prettier (v3.8), Husky (v9) |
-
 ## Update Files & Structure
 
 ```bash
-  # ▶️ Create Router
+  # ▶️ Router Setup
   # src > router > AppRouter.tsx
+  # src > router > ProtectedRoute.tsx
   # Create routes constant
   # Add AppRouter in App.tsx
-  # ▶️ Create Structure
+  # ▶️ Create Folder Structure
   # src > pages
   # src > components > (Layout / Antd / Utilities)
   # src > assets > (fonts / images / svgs)
   # ▶️ Set Alias & Base URL to Fix Path Issue
   # Set baseUrl and paths in tsconfig.app.json
   # Add alias in vite.config.ts
-  # ▶️ Create Constants & Utils
+  # ▶️ Constants & Utils
   # src > constants > (Images / Menues / Sorting / Messages / Routes / periods)
   # src > utils > (message / sorting / validation)
-  # ▶️ Integrated Theme
+  # ▶️ Theme Setup
   # src > theme > (colors / antdTokens / themeContext / useTheme)
   # src > theme > styles > (globalStyles / breakpoints)
   # added ThemeContextProvider in main.tsx | ThemeToggle Component
-  # ▶️ Integrated i18n for Multi language
+  # ▶️ i18n for Multi language
   # src > i18n > locales > (en/fr)
   # src > i18n > (i18n / i18nProvider)
   # added I18nProvider in main.tsx | LanguageSelector Component
@@ -122,9 +123,10 @@
   # created sample Button.test.tsx
   # Run test 'npm run test' & 'npm run test -- Button.test.tsx'
   # Update eslint.config.js
-  # ▶️ Docs files
-  # AntdSnippets.md (Useful Antd Snippets)
-  # ReactFC.md (Sample component to extend for extra props in Antd Comp)
+  # ▶️ Readme Files
+  # ANTD_SNIPPETS.md (Useful Antd Snippets)
+  # REACT_FC.md (Sample component to extend for extra props in Antd Comp)
+  # THEME_GUIDE.md (Theme utilities guide)
 ```
 
 ## Project Scripts
@@ -152,7 +154,7 @@
 - Add a .env file in the project root for environment variables.
 - Husky ensures that code is automatically linted before every commit.
 
-## 👉 Other Info
+## Other Info
 
 TypeScript Configuration (Keep as Default)
 

@@ -73,15 +73,20 @@
 />
 ```
 
-## Anchor
+## Modals (Common)
 
 ```tsx
-<Anchor>
-  <Link href="#section1" title="Section 1" />
-  <Link href="#section2" title="Section 2" />
-</Anchor>
-
-<div id="section1" /> <div id="section2" />
+// Confirmation Modal
+<ConfirmModal
+  open={openCM}
+  onOk={handleCMOk}
+  onCancel={() => handleCMCancel()}
+  title="Delete?"
+  okText="Delete"
+  cancelText="Cancel"
+>
+  Are you sure you want to delete?
+</ConfirmModal>
 ```
 
 ## Skeleton & Spin Usage
@@ -133,4 +138,15 @@ const items: DescriptionsProps['items'] = [
   colon={false}
   column={{ xs: 1, sm: 2, md: 3, lg: 3, xl: 4, xxl: 4 }}
 />
+```
+
+## Anchor
+
+```tsx
+<Anchor>
+  <Link href="#section1" title="Section 1" />
+  <Link href="#section2" title="Section 2" />
+</Anchor>
+
+<div id="section1" /> <div id="section2" />
 ```
