@@ -1,3 +1,4 @@
+import { InputStyle, SingleLineInput } from '@/theme/styles/sharedStyles'
 import { IconArrowDown } from '@tabler/icons-react'
 import { Select as AntdSelect, SelectProps } from 'antd'
 
@@ -8,6 +9,10 @@ const SelectStyled = styled(AntdSelect)`
 
   // ===== Base Select =====
   &.ant-select {
+    ${InputStyle}
+    ${SingleLineInput}
+    padding: 0 14px;
+
     .ant-select-content {
       .ant-select-input {
       }

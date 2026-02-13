@@ -19,9 +19,12 @@ import {
   H4,
   H5,
   Input,
+  InputNumber,
   Modal,
   Pagination,
+  Password,
   Radio,
+  RangePicker,
   Select,
   Skeleton,
   Spin,
@@ -30,11 +33,13 @@ import {
   Table,
   Tabs,
   Tag,
+  TextArea,
   TextL,
   TextM,
   TextS,
   TextXL,
   TextXS,
+  TimePicker,
   Upload
 } from '@/components'
 import {
@@ -42,6 +47,7 @@ import {
   IconArrowDown,
   IconArrowUp,
   IconBrandTwitter,
+  IconLock,
   IconUpload,
   IconUser
 } from '@tabler/icons-react'
@@ -67,7 +73,7 @@ interface DashboardProps {
 const Dashboard = ({ message = 'Dashboard' }: DashboardProps) => {
   const { t } = useTranslation('account')
 
-  const { TextArea } = Input
+  // const { TextArea } = Input
 
   const items: MenuProps['items'] = [
     {
@@ -259,10 +265,9 @@ const Dashboard = ({ message = 'Dashboard' }: DashboardProps) => {
           name="username"
           rules={[{ required: true, message: 'Please input username!' }]}
         >
-          <Input placeholder="Basic usage" />
+          <Input />
         </FormItem>
         <br />
-        <TextArea rows={4} />
       </Form>
       <br />
       <Flex gap={20}>
@@ -296,7 +301,7 @@ const Dashboard = ({ message = 'Dashboard' }: DashboardProps) => {
         <p>Some contents...</p>
       </Modal>
       <br />
-      <DatePicker onChange={onChangeDP} />
+
       <br />
       <Collapse
         items={itemsCollapse}
@@ -358,7 +363,7 @@ const Dashboard = ({ message = 'Dashboard' }: DashboardProps) => {
           <Button>Click Me</Button>
         </Col>
         <Col xs={24} md={24} lg={24} flex="1">
-          <Input placeholder="Type here" />
+          <Input />
         </Col>
       </Row>
 
@@ -405,10 +410,10 @@ const Dashboard = ({ message = 'Dashboard' }: DashboardProps) => {
         </Col>
       </Row>
 
-      <Form form={form} layout="vertical" requiredMark={false}>
+      <Form form={form} layout="vertical">
         <FloatingInput
-          name="Name"
-          label="Name"
+          name="Name Allow Clear"
+          label="Name Allow Clear"
           required
           rules={[{ required: true, message: 'Name is required' }]}
         >
@@ -416,8 +421,17 @@ const Dashboard = ({ message = 'Dashboard' }: DashboardProps) => {
         </FloatingInput>
 
         <FloatingInput
-          label="Gender"
-          name="Gender"
+          name="Name"
+          label="Name"
+          required
+          rules={[{ required: true, message: 'Name is required' }]}
+        >
+          <Input />
+        </FloatingInput>
+
+        <FloatingInput
+          label="Select"
+          name="Select"
           required
           rules={[
             { required: true, message: 'Gender is required' },
@@ -425,6 +439,7 @@ const Dashboard = ({ message = 'Dashboard' }: DashboardProps) => {
           ]}
         >
           <Select
+            allowClear
             onChange={handleChange}
             options={[
               { value: 'jack', label: 'Jack' },
@@ -433,6 +448,78 @@ const Dashboard = ({ message = 'Dashboard' }: DashboardProps) => {
               { value: 'disabled', label: 'Disabled', disabled: true }
             ]}
           />
+        </FloatingInput>
+
+        <FloatingInput
+          label="Date Picker"
+          name="DatePicker"
+          required
+          rules={[
+            { required: true, message: 'Gender is required' },
+            { type: 'email', message: 'Enter valid Gender' }
+          ]}
+        >
+          <DatePicker onChange={onChangeDP} />
+        </FloatingInput>
+
+        <FloatingInput
+          label="Input Number"
+          name="InputNumber"
+          required
+          rules={[
+            { required: true, message: 'Gender is required' },
+            { type: 'email', message: 'Enter valid Gender' }
+          ]}
+        >
+          <InputNumber />
+        </FloatingInput>
+
+        <FloatingInput
+          label="TextArea"
+          name="TextArea"
+          required
+          rules={[
+            { required: true, message: 'Gender is required' },
+            { type: 'email', message: 'Enter valid Gender' }
+          ]}
+        >
+          <TextArea rows={4} />
+        </FloatingInput>
+
+        <FloatingInput
+          label="Password"
+          name="Password"
+          required
+          rules={[
+            { required: true, message: 'Gender is required' },
+            { type: 'email', message: 'Enter valid Gender' }
+          ]}
+        >
+          <Password type="password" allowClear />
+        </FloatingInput>
+
+        <FloatingInput
+          label="TimePicker"
+          name="TimePicker"
+          required
+          rules={[
+            { required: true, message: 'Gender is required' },
+            { type: 'email', message: 'Enter valid Gender' }
+          ]}
+        >
+          <TimePicker />
+        </FloatingInput>
+
+        <FloatingInput
+          label="RangePicker"
+          name="RangePicker"
+          required
+          rules={[
+            { required: true, message: 'Gender is required' },
+            { type: 'email', message: 'Enter valid Gender' }
+          ]}
+        >
+          <RangePicker />
         </FloatingInput>
       </Form>
     </div>

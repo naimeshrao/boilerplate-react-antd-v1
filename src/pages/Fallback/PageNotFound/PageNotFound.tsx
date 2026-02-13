@@ -9,7 +9,7 @@ const PageNotFound = () => {
         Error 404
       </H1>
       <TextXL color="dark">Oops! Page Not Found</TextXL>
-      <Button>Homepage</Button>
+      <Button>Back to home</Button>
     </ErrorBox>
   )
 }

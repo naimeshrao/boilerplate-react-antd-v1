@@ -1,12 +1,9 @@
 import { InputStyle, SingleLineInput } from '@/theme/styles/sharedStyles'
-import { InputNumber as AntdInputNumber } from 'antd'
+import { TimePicker as AntdTimePicker } from 'antd'
 import styled from 'styled-components'
 
-export const InputNumber = styled(AntdInputNumber)`
+export const TimePicker = styled(AntdTimePicker)`
   width: 100%;
   ${InputStyle}
   ${SingleLineInput}
-
-  .ant-input-number-input {
-  }
 `

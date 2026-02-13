@@ -1,8 +1,16 @@
+import { InputStyle, SingleLineInput } from '@/theme/styles/sharedStyles'
 import { Input as AntdInput } from 'antd'
 import styled, { css } from 'styled-components'
 
 const baseInputStyles = css`
-  caret-color: gray;
+  ${InputStyle}
+  ${SingleLineInput}
+  width: 100%;
+
+  textarea {
+    padding: 14px;
+    resize: none;
+  }
 
   // ===== Hover/Focus =====
   &:hover {
@@ -48,8 +56,6 @@ export const Input = styled(AntdInput)`
 
 export const TextArea = styled(AntdInput.TextArea)`
   ${baseInputStyles}
-
-  resize: none;
 `
 
 export const Password = styled(AntdInput.Password)`

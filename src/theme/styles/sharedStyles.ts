@@ -1,6 +1,6 @@
 import styled, { css, keyframes } from 'styled-components'
 
-// Flex Helper
+// ===== Flex Helper =====
 export const flex = (
   direction?: string,
   gap?: string,
@@ -16,13 +16,20 @@ export const flex = (
   ${wrap ? `flex-wrap: ${wrap};` : ''}
 `
 
-// Fixed Width (Responsive)
+// ===== Fixed Width (Responsive) =====
 export const fixedWidth = (width?: number | string) => css`
   ${width ? `width: ${typeof width === 'number' ? `${width}px` : width};` : ''}
   max-width: 100%;
 `
 
-// Loader & Spin Animation
+// ===== Ellipsis =====
+export const ellipsis = css`
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`
+
+// ===== Loader & Spin Animation =====
 export const spinAnimation = keyframes`
   0% {
     transform: rotate(0deg);
@@ -32,7 +39,23 @@ export const spinAnimation = keyframes`
   }
 `
 
-// Div Button
+// ===== Form Elements =====
+export const InputStyle = css`
+  font-size: 14px;
+  background: ${({ theme }) => theme.colors['gray-100']};
+  border-color: ${({ theme }) => theme.colors['gray-300']};
+  color: ${({ theme }) => theme.colors['gray-600']};
+`
+
+export const SingleLineInput = css`
+  height: 50px;
+  padding-left: 14px;
+  padding-right: 14px;
+  border-radius: 8px;
+  box-shadow: none;
+`
+
+// ===== Div Button =====
 export const DivButton = styled.button`
   width: 100%;
   display: block;

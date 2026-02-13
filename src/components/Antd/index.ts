@@ -22,6 +22,7 @@ export * from './FloatButton/FloatButton'
 export * from './Upload/Upload'
 export * from './Empty/Empty'
 export * from './Statistic/Statistic'
+export * from './TimePicker/TimePicker'
 
 export { default as Select } from './Select/Select'
 export { Input, TextArea, Password, Search } from './Input/Input'

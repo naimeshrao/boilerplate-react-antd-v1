@@ -9,7 +9,7 @@ const ServerError = () => {
         Error 500
       </H1>
       <TextXL color="dark">Internal Server Error</TextXL>
-      <Button>Homepage</Button>
+      <Button>Back to home</Button>
     </ErrorBox>
   )
 }

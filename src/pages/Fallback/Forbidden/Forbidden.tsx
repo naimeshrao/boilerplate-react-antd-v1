@@ -9,7 +9,7 @@ const Forbidden = () => {
         Error 403
       </H1>
       <TextXL color="dark">Access Denied</TextXL>
-      <Button>Homepage</Button>
+      <Button>Back to home</Button>
     </ErrorBox>
   )
 }

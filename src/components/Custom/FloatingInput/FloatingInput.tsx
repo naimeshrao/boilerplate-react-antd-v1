@@ -1,6 +1,6 @@
-import { Form } from 'antd'
 import { useState, cloneElement, ReactElement } from 'react'
 import type { FormItemProps } from 'antd'
+import { FloatingInputStyle } from './FloatingInput.style'
 
 type ChildProps = {
   onFocus?: (...args: any[]) => void
@@ -11,11 +11,13 @@ type ChildProps = {
 interface FloatingInputProps extends FormItemProps {
   label: string
   children: ReactElement<ChildProps>
+  mb?: number
 }
 
 export function FloatingInput({
   label,
   children,
+  mb,
   ...formItemProps
 }: FloatingInputProps) {
   const [isFocused, setIsFocused] = useState(false)
@@ -45,15 +47,15 @@ export function FloatingInput({
   })
 
   return (
-    <Form.Item {...formItemProps}>
+    <FloatingInputStyle $mb={mb} {...formItemProps}>
       <div
         className={`floating-input ${
           isFocused ? 'is-focused' : ''
         } ${isFilled ? 'is-filled' : ''}`}
       >
         {clonedChild}
-        <label>{label}</label>
+        <label className="float-input-label">{label}</label>
       </div>
-    </Form.Item>
+    </FloatingInputStyle>
   )
 }
