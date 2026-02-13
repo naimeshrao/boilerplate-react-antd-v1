@@ -1,10 +1,15 @@
-import { InputStyle, SingleLineInput } from '@/theme/styles/sharedStyles'
+import {
+  InputStyle,
+  InputStyleFocused,
+  InputStyleHover,
+  SingleLineInput
+} from '@/theme/styles/sharedStyles'
 import { Input as AntdInput } from 'antd'
 import styled, { css } from 'styled-components'
 
 const baseInputStyles = css`
-  ${InputStyle}
-  ${SingleLineInput}
+  ${InputStyle};
+  ${SingleLineInput};
   width: 100%;
 
   textarea {
@@ -14,10 +19,11 @@ const baseInputStyles = css`
 
   // ===== Hover/Focus =====
   &:hover {
+    ${InputStyleHover}
   }
 
-  &:focus,
-  &.ant-input-affix-wrapper-focused {
+  &:focus {
+    ${InputStyleFocused}
   }
 
   // ===== Sizes =====
@@ -27,8 +33,16 @@ const baseInputStyles = css`
   &.ant-input-lg {
   }
 
-  // ===== Affix / Suffix Icon =====
+  // ===== Input Affix Wrapper with Icon =====
   &.ant-input-affix-wrapper {
+    &:hover {
+      ${InputStyleHover}
+    }
+
+    &.ant-input-affix-wrapper-focused {
+      ${InputStyleFocused}
+    }
+
     .ant-input-prefix {
     }
 

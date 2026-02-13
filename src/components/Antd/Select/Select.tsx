@@ -1,4 +1,9 @@
-import { InputStyle, SingleLineInput } from '@/theme/styles/sharedStyles'
+import {
+  InputStyle,
+  InputStyleFocused,
+  InputStyleHover,
+  SingleLineInput
+} from '@/theme/styles/sharedStyles'
 import { IconArrowDown } from '@tabler/icons-react'
 import { Select as AntdSelect, SelectProps } from 'antd'
 
@@ -9,9 +14,18 @@ const SelectStyled = styled(AntdSelect)`
 
   // ===== Base Select =====
   &.ant-select {
-    ${InputStyle}
-    ${SingleLineInput}
+    ${InputStyle};
+    ${SingleLineInput};
     padding: 0 14px;
+
+    &:hover {
+      ${InputStyleHover};
+    }
+
+    &.ant-select-focused,
+    &.ant-select-open {
+      ${InputStyleFocused};
+    }
 
     .ant-select-content {
       .ant-select-input {

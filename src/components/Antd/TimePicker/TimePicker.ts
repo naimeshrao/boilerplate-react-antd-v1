@@ -1,9 +1,22 @@
-import { InputStyle, SingleLineInput } from '@/theme/styles/sharedStyles'
+import {
+  InputStyle,
+  InputStyleFocused,
+  InputStyleHover,
+  SingleLineInput
+} from '@/theme/styles/sharedStyles'
 import { TimePicker as AntdTimePicker } from 'antd'
 import styled from 'styled-components'
 
 export const TimePicker = styled(AntdTimePicker)`
   width: 100%;
-  ${InputStyle}
-  ${SingleLineInput}
+  ${InputStyle};
+  ${SingleLineInput};
+
+  &:hover {
+    ${InputStyleHover};
+  }
+
+  &.ant-picker-focused {
+    ${InputStyleFocused};
+  }
 `

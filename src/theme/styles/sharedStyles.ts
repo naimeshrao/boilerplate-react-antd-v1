@@ -55,6 +55,16 @@ export const SingleLineInput = css`
   box-shadow: none;
 `
 
+export const InputStyleHover = css`
+  border-color: ${({ theme }) => theme.colors['gray-600']};
+  background-color: white;
+`
+
+export const InputStyleFocused = css`
+  border-color: ${({ theme }) => theme.colors['primary-500']};
+  background-color: white;
+`
+
 // ===== Div Button =====
 export const DivButton = styled.button`
   width: 100%;

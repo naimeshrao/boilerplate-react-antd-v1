@@ -4,7 +4,7 @@
     "noEmit": true,
     /* Language and environment */
     "target": "ES2022",
-    "lib": ["DOM", "DOM.Iterable", "ES2022"],
+    "lib": ["DOM", "DOM.Iterable", "ES2022", "dom", "esnext"],
     "jsx": "react-jsx",
     /* Module resolution (Vite friendly) */
     "module": "ESNext",

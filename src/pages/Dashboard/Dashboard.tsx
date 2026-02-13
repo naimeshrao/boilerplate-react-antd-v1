@@ -47,7 +47,6 @@ import {
   IconArrowDown,
   IconArrowUp,
   IconBrandTwitter,
-  IconLock,
   IconUpload,
   IconUser
 } from '@tabler/icons-react'
@@ -490,10 +489,10 @@ const Dashboard = ({ message = 'Dashboard' }: DashboardProps) => {
           label="Password"
           name="Password"
           required
-          rules={[
-            { required: true, message: 'Gender is required' },
-            { type: 'email', message: 'Enter valid Gender' }
-          ]}
+          // rules={[
+          //   { required: true, message: 'Gender is required' },
+          //   { type: 'email', message: 'Enter valid Gender' }
+          // ]}
         >
           <Password type="password" allowClear />
         </FloatingInput>

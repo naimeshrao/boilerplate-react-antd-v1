@@ -28,7 +28,7 @@ export const FloatingInputStyle = styled(Form.Item)<FloatingInputStyleProps>`
     &.is-filled {
       .float-input-label {
         left: 14px;
-        top: -5px;
+        top: -8px;
         line-height: 18px;
         font-size: 14px;
         padding: 0 4px;

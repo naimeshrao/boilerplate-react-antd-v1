@@ -1,4 +1,9 @@
-import { InputStyle, SingleLineInput } from '@/theme/styles/sharedStyles'
+import {
+  InputStyle,
+  InputStyleFocused,
+  InputStyleHover,
+  SingleLineInput
+} from '@/theme/styles/sharedStyles'
 import { DatePicker as AntDatePicker } from 'antd'
 import type { DatePickerProps } from 'antd'
 import type { Dayjs } from 'dayjs'
@@ -8,8 +13,16 @@ const { RangePicker: AntRangePicker } = AntDatePicker
 
 const baseStyle = css`
   width: 100%;
-  ${InputStyle}
-  ${SingleLineInput}
+  ${InputStyle};
+  ${SingleLineInput};
+
+  &:hover {
+    ${InputStyleHover}
+  }
+
+  &.ant-picker-focused {
+    ${InputStyleFocused}
+  }
 `
 
 export const DatePicker = styled(AntDatePicker)<DatePickerProps<Dayjs>>`
