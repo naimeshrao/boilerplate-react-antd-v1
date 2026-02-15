@@ -14,9 +14,9 @@ export const LoaderSVG: React.FC<LoaderSVGProps> = ({
   className
 }) => {
   const gradientId = useId()
-  const theme = useTheme() as AppTheme
 
-  const spinColor = color || theme.colors['primary-500']
+  const theme = useTheme() as AppTheme
+  const svgColor = color || theme.colors['primary-500']
 
   return (
     <svg
@@ -37,11 +37,11 @@ export const LoaderSVG: React.FC<LoaderSVGProps> = ({
           fy=".3125"
           gradientTransform="scale(1.5)"
         >
-          <stop offset="0%" stopColor={spinColor} />
-          <stop offset="30%" stopColor={spinColor} stopOpacity="0.9" />
-          <stop offset="60%" stopColor={spinColor} stopOpacity="0.6" />
-          <stop offset="80%" stopColor={spinColor} stopOpacity="0.3" />
-          <stop offset="100%" stopColor={spinColor} stopOpacity="0" />
+          <stop offset="0%" stopColor={svgColor} />
+          <stop offset="30%" stopColor={svgColor} stopOpacity="0.9" />
+          <stop offset="60%" stopColor={svgColor} stopOpacity="0.6" />
+          <stop offset="80%" stopColor={svgColor} stopOpacity="0.3" />
+          <stop offset="100%" stopColor={svgColor} stopOpacity="0" />
         </radialGradient>
       </defs>
 
@@ -70,7 +70,7 @@ export const LoaderSVG: React.FC<LoaderSVGProps> = ({
         cy="100"
         r="70"
         fill="none"
-        stroke={spinColor}
+        stroke={svgColor}
         opacity="0.2"
         strokeWidth="20"
         strokeLinecap="round"
