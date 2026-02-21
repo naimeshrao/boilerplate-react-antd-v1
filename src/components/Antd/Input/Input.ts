@@ -1,5 +1,6 @@
 import {
   InputStyle,
+  InputStyleDisabled,
   InputStyleError,
   InputStyleFocused,
   InputStyleHover,
@@ -38,7 +39,7 @@ const baseInputStyles = css`
     ${InputStyleHover};
   }
 
-  &:focus {
+  &&:focus {
     ${InputStyleFocused};
   }
 
@@ -49,13 +50,38 @@ const baseInputStyles = css`
   &.ant-input-lg {
   }
 
+  // Disabled State
+  &.ant-input-disabled {
+    ${InputStyleDisabled};
+    &:hover {
+      ${InputStyleDisabled};
+    }
+  }
+
+  // Error State
+  &.ant-input-status-error:not(.ant-input-disabled) {
+    ${InputStyleError};
+
+    &:hover,
+    &:focus {
+      ${InputStyleError};
+    }
+  }
+
+  // ===== Autofill Fix =====
+  .ant-input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px ${({ theme }) => theme.colors.white}
+      inset;
+    -webkit-text-fill-color: ${({ theme }) => theme.colors.black};
+  }
+
   // ===== Input Affix Wrapper with Icon =====
   &.ant-input-affix-wrapper {
-    &:hover {
+    &:not(.ant-input-disabled):hover {
       ${InputStyleHover}
     }
 
-    &.ant-input-affix-wrapper-focused {
+    &&.ant-input-affix-wrapper-focused {
       ${InputStyleFocused}
     }
 
@@ -64,18 +90,24 @@ const baseInputStyles = css`
 
     .ant-input-suffix {
     }
-  }
 
-  // ===== Error State =====
-  &.ant-input-status-error:not(.ant-input-disabled) {
-    ${InputStyleError};
-  }
+    // Disabled State
+    &.ant-input-disabled {
+      ${InputStyleDisabled};
+      &:hover {
+        ${InputStyleDisabled};
+      }
+    }
 
-  // ===== Autofill Fix =====
-  .ant-input:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0px 1000px ${({ theme }) => theme.colors.white}
-      inset;
-    -webkit-text-fill-color: ${({ theme }) => theme.colors.black};
+    // Error State
+    &.ant-input-status-error:not(.ant-input-disabled) {
+      ${InputStyleError};
+
+      &:hover,
+      &.ant-input-affix-wrapper-focused {
+        ${InputStyleError};
+      }
+    }
   }
 `
 

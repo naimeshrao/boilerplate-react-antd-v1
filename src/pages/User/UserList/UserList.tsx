@@ -1,4 +1,4 @@
-import { PageOuter, Table, TableEmpty, TableSortIcon } from '@/components'
+import { PageOuter, Table, TableEmpty, TableSortIcon, Text } from '@/components'
 import type { TableColumnsType, TableProps } from 'antd'
 import { Key, useState } from 'react'
 
@@ -19,7 +19,11 @@ const columns: TableColumnsType<DataType> = [
     align: 'left',
     sorter: (a, b) => a.name.localeCompare(b.name),
     sortIcon: ({ sortOrder }) => <TableSortIcon sortOrder={sortOrder} />,
-    width: 150
+    ellipsis: {
+      showTitle: true
+    },
+    render: (text) => <Text ellipsis={{ tooltip: text }}>{text}</Text>,
+    width: 160
   },
   {
     title: 'Age',
@@ -45,7 +49,7 @@ const columns: TableColumnsType<DataType> = [
 
 const dataSource = Array.from({ length: 46 }).map<DataType>((_, i) => ({
   key: i,
-  name: `Edward King ${i}`,
+  name: `Edward King ABCD ${i}`,
   age: 32,
   address: `London, Park Lane no. ${i}`
 }))
@@ -105,9 +109,9 @@ const UserList = () => {
         rowSelection={rowSelection}
         columns={columns}
         dataSource={dataSource}
-        scroll={{ x: 'max-content', y: '100%' }}
+        scroll={{ y: '100%' }}
         pagination={{
-          pageSize: 10,
+          pageSize: 20,
           showSizeChanger: true,
           showTotal: (total) => `Total ${total} items`
         }}
