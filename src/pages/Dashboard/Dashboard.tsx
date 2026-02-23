@@ -91,35 +91,6 @@ const Dashboard = () => {
           <Input />
         </Col>
       </Row>
-
-      <Row gutter={[24, 24]}>
-        <Col xs={24} md={8}>
-          <div>
-            <div>Basic</div>
-            <Spin />
-          </div>
-        </Col>
-
-        <Col xs={24} md={8}>
-          <div>
-            <div>Sizes</div>
-            <Flex gap={16} align="center">
-              <Spin size="small" />
-              <Spin size="default" />
-              <Spin size="large" />
-            </Flex>
-          </div>
-        </Col>
-
-        <Col xs={24} md={24}>
-          <div>
-            <div>Inside Container</div>
-            <Spin spinning>
-              <div style={{ height: 180 }} />
-            </Spin>
-          </div>
-        </Col>
-      </Row>
     </PageOuter>
   )
 }
